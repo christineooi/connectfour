@@ -1,0 +1,54 @@
+body {
+    font-family: "Comic Sans MS";
+}
+
+header {
+    text-align: center;
+}
+
+
+
+#container {
+  width:640px;  
+  margin:0 auto;
+  padding-top:60px;
+  border: 1px solid black;
+}
+
+#gameBoard {
+  width:434px;
+  height:374px;
+  margin: auto;
+  margin-top: 90px;
+  position:relative;
+}
+
+table {
+  width:434px;
+  height:374px;
+  border: 1px solid black;
+}
+
+td {
+  /* border-right: 1px double black; */
+}
+
+
+.disc{
+    position:absolute;
+    z-index:-1;
+    top:-55px;
+    left:14px;
+    width:46px;
+    height:46px;
+    border-radius:46px;
+    transition:all .3s;
+  }
+  
+  .disc.red{
+    background:#d96666;
+  }
+  
+  .disc.yellow{
+    background:#ffeb79;
+  }
