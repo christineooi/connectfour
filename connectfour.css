@@ -16,11 +16,12 @@ header {
   margin:0 auto;
   padding-top:60px;
   border: 1px solid black;
+  background: blanchedalmond;
 }
 
 #gameBoard {
   width:434px;
-  height:270px;
+  height:275px;
   margin: auto;
   margin-top: 60px;
   /* position:relative; */
@@ -30,7 +31,7 @@ header {
 .column {
 	flex: 1;
 	border: 1px solid black;
-  height: 270px;
+  height: 275px;
   display: flex;
   flex-direction: column-reverse;
   align-items: center;
@@ -45,7 +46,7 @@ header {
     height:46px;
     border-radius:46px;
     /* transition:all .3s; */
-    background: #d96666;
+  
   }
   
   .disc.red{

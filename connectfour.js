@@ -1,5 +1,6 @@
 var currentPlayer = 1;
 var nextPlayer = 2;
+var color = "red";
 
 let board = [
     [0, 0, 0, 0, 0, 0, 0],
@@ -22,6 +23,7 @@ function setMessage(msg){
 handleClick = function(event) {
     //Clear any messages
     setMessage("");
+    
     var col = event.target;
     var row;
     console.log("col: " + col.id);  
@@ -31,6 +33,7 @@ handleClick = function(event) {
         // Add disc to column
         var divEl = document.createElement("div");
         divEl.className = "disc";
+        divEl.style.background = color;
         var selCol = document.getElementById(col.id);
         selCol.appendChild(divEl);
 
@@ -43,11 +46,17 @@ handleClick = function(event) {
             }
         } 
 console.log("board: " + JSON.stringify(board));
+
         if(currentPlayer === 1 ) {
             nextPlayer = 2;
+            color = "black";
         } else {
             nextPlayer = 1;
-        }        
+            color = "red";
+        }     
+        
+        currentPlayer = nextPlayer;
+        
 
     } else {
         setMessage("No room in this column");
