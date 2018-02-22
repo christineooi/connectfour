@@ -6,7 +6,10 @@ header {
     text-align: center;
 }
 
-
+#message {
+  text-align: center;
+  height: 25px;
+}
 
 #container {
   width:640px;  
@@ -17,32 +20,32 @@ header {
 
 #gameBoard {
   width:434px;
-  height:374px;
+  height:270px;
   margin: auto;
-  margin-top: 90px;
-  position:relative;
+  margin-top: 60px;
+  /* position:relative; */
+  display: flex;
 }
 
-table {
-  width:434px;
-  height:374px;
-  border: 1px solid black;
+.column {
+	flex: 1;
+	border: 1px solid black;
+  height: 270px;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
 }
-
-td {
-  /* border-right: 1px double black; */
-}
-
 
 .disc{
-    position:absolute;
-    z-index:-1;
+    /* position:absolute; */
+    /* z-index:-1;
     top:-55px;
-    left:14px;
+    left:14px; */
     width:46px;
     height:46px;
     border-radius:46px;
-    transition:all .3s;
+    /* transition:all .3s; */
+    background: #d96666;
   }
   
   .disc.red{
