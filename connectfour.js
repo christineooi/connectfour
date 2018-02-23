@@ -30,17 +30,17 @@ function checkWinner(arr) {
     var result = false;
     // HORIZONTAL
 // iterate each row
-for(let y = 0; y < board.length; y++){
+for(let y = 0; y < arr.length; y++){
 
     // iterate each cell in the row
     for(let x = 0; x < edgeX; x++) {
-      let cell = board[y][x];
+      let cell = arr[y][x];
       
       // Only check if cell is filled
       if(cell !== 0) {
         
         // Check the next two cells for the same value
-        if(cell === board[y][x+1] && cell === board[y][x+2] && cell === board[y][x+3] ) {
+        if(cell === arr[y][x+1] && cell === arr[y][x+2] && cell === arr[y][x+3] ) {
           console.log("4 in a row horizontal found at " + (x+1) + ":" + (y+1) + "Player " + cell + " wins!");
           setMessage("4 IN A ROW found horizontally at column " + (x+1) + ", row " + (y+1) + "<br> Player " + cell + " wins!");
           result = true;
@@ -54,14 +54,14 @@ for(let y = 0; y < board.length; y++){
   for(let y = 0; y < edgeY; y++){
   
     // iterate each cell in the row
-    for(let x = 0; x < board[0].length; x++) {
-      cell = board[y][x];
+    for(let x = 0; x < arr[0].length; x++) {
+      cell = arr[y][x];
       
       // Only check if cell is filled
       if(cell !== 0) {
         
         // Check the next two cells for the same value
-        if(cell === board[y+1][x] && cell === board[y+2][x] && cell === board[y+3][x]) {
+        if(cell === arr[y+1][x] && cell === arr[y+2][x] && cell === arr[y+3][x]) {
           console.log("4 in a row horizontal found at " + (x+1) + ":" + (y+1) + "Player " + cell + " wins!")
           setMessage("4 IN A ROW found vertically at column " + (x+1) + ", row " + (y+1) + "<br>Player " + cell + " wins!");
           result = true;
@@ -76,13 +76,13 @@ for(let y = 0; y < board.length; y++){
   
     // iterate each cell in the row
     for(let x = 0; x < edgeX; x++) {
-      cell = board[y][x];
+      cell = arr[y][x];
       
       // Only check if cell is filled
       if(cell !== 0) {
         
         // Check the next two cells for the same value
-        if(cell === board[y+1][x+1] && cell === board[y+2][x+2] && cell === board[y+3][x+3]) {
+        if(cell === arr[y+1][x+1] && cell === arr[y+2][x+2] && cell === arr[y+3][x+3]) {
           console.log("4 in a row down-right found at " + (x+1) + ":" + (y+1) + "Player " + cell + " wins!")
           setMessage("4 IN A ROW found diagonally down-right at column " + (x+1) + ", row " + (y+1) + "<br>Player " + cell + " wins!");
           result = true;
@@ -94,17 +94,17 @@ for(let y = 0; y < board.length; y++){
   
   // DIAGONAL (DOWN LEFT)
   // iterate each row   
-  for(let y = 2; y < board.length; y++){
+  for(let y = 3; y < arr.length; y++){
   
     // iterate each cell in the row
     for(let x = 0; x < edgeX; x++) {
-      cell = board[y][x];
+      cell = arr[y][x];
       
       // Only check if cell is filled
       if(cell !== 0) {
         
         // Check the next two cells for the same value
-        if(cell === board[y-1][x+1] && cell === board[y-2][x+2] && board[y-3][x+3]) {
+        if(cell === arr[y-1][x+1] && cell === arr[y-2][x+2] && cell === arr[y-3][x+3]) {
           console.log("4 in a row down-left found at " + (x+1) + ":" + (y+1) + "Player " + cell + " wins!");
           setMessage("4 IN A ROW found diagonally down-left at column " + (x+1) + ", row " + (y+1) + "<br>Player " + cell + " wins!");
           result = true;
@@ -184,7 +184,7 @@ handleClick = function(event) {
                     break;
                 }
             } 
-// console.log("board: " + JSON.stringify(board));
+console.log("board: " + JSON.stringify(board));
 
             if(currentPlayer === 1 ) {
                 nextPlayer = 2;
