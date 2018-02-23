@@ -1,6 +1,7 @@
 var currentPlayer = 1;
 var nextPlayer = 2;
 var color = "red";
+var gameOver = false;
 
 var board = [
     [0, 0, 0, 0, 0, 0, 0],
@@ -118,8 +119,8 @@ for(let y = 0; y < board.length; y++){
 // Check for draw by seeing if all slots are taken 
 function checkDraw(arr) {
     var result = true;
-    for (x=0; x<board[0].length; x++) {
-        if (board[0][x] === 0){
+    for (x=0; x<arr[0].length; x++) {
+        if (arr[0][x] === 0){
             result = false;
         } else {
             continue;
@@ -136,6 +137,7 @@ function resetGame() {
     currentPlayer = 1;
     nextPlayer = 2;
     color = "red";
+    gameOver = false;
 
     board = [
         [0, 0, 0, 0, 0, 0, 0],
@@ -157,55 +159,57 @@ function resetGame() {
 
 
 handleClick = function(event) {
-    //Clear any messages
-    setMessage("");
+
+    if (!gameOver) {
+        //Clear any messages
+        setMessage("");
     
-    var col = event.target;
-    var row;
-    console.log("col: " + col.id);  
-    // Check column is not full
-    if (board[0][col.id] === 0){
- console.log("adding disc now");       
-        // Add disc to column
-        var divEl = document.createElement("div");
-        divEl.className = "disc";
-        divEl.style.background = color;
-        var selCol = document.getElementById(col.id);
-        selCol.appendChild(divEl);
+        var col = event.target;
+        var row;
+        console.log("col: " + col.id);  
+        // Check column is not full
+        if (board[0][col.id] === 0){     
+            // Add disc to column
+            var divEl = document.createElement("div");
+            divEl.className = "disc";
+            divEl.style.background = color;
+            var selCol = document.getElementById(col.id);
+            selCol.appendChild(divEl);
 
-        //Loop through column to find the next available slot and mark the position with the currentPlayer
-        for (let i=board.length-1; i>=0; i--){
-            if(board[i][col.id] === 0) {
-                board[i][col.id] = currentPlayer;
-                row = i;
-                break;
-            }
-        } 
-console.log("board: " + JSON.stringify(board));
+            //Loop through column to find the next available slot and mark the position with the currentPlayer
+            for (let i=board.length-1; i>=0; i--){
+                if(board[i][col.id] === 0) {
+                    board[i][col.id] = currentPlayer;
+                    row = i;
+                    break;
+                }
+            } 
+// console.log("board: " + JSON.stringify(board));
 
-        if(currentPlayer === 1 ) {
-            nextPlayer = 2;
-            color = "black";
-        } else {
-            nextPlayer = 1;
-            color = "red";
-        }     
+            if(currentPlayer === 1 ) {
+                nextPlayer = 2;
+                color = "black";
+            } else {
+                nextPlayer = 1;
+                color = "red";
+            }     
         
-        if(checkWinner(board)) {
-            
-            // resetGame();
-        } else if(checkDraw(board)) {
+            if(checkWinner(board)) {
+                gameOver = true;
+            } else if(checkDraw(board)) {
             setMessage("Draw! Game Over");
+                gameOver = true;
             // resetGame();
-        } else { 
-            // Swap players
-            currentPlayer = nextPlayer;
-        }
+            } else { 
+                // Swap players
+                currentPlayer = nextPlayer;
+            }
 
         
 
-    } else {
-        setMessage("No slots available in this column");
+        } else {
+            setMessage("No slots available in this column");
+        }
     }
 }
 
