@@ -12,16 +12,18 @@ header {
 }
 
 #container {
-  width:640px;  
+  width:640px; 
+  height: 425px; 
   margin:0 auto;
   padding-top:60px;
   border: 1px solid black;
   background: blanchedalmond;
+  text-align: center;
 }
 
 #gameBoard {
   width:434px;
-  height:275px;
+  height:280px;
   margin: auto;
   margin-top: 60px;
   /* position:relative; */
@@ -31,7 +33,7 @@ header {
 .column {
 	flex: 1;
 	border: 1px solid black;
-  height: 275px;
+  height: 280px;
   display: flex;
   flex-direction: column-reverse;
   align-items: center;
@@ -46,13 +48,9 @@ header {
     height:46px;
     border-radius:46px;
     /* transition:all .3s; */
-  
   }
   
-  .disc.red{
-    background:#d96666;
-  }
-  
-  .disc.yellow{
-    background:#ffeb79;
-  }
+#resetButton {
+  width: 100px;; 
+  margin-top: 20px;
+}
