@@ -11,6 +11,7 @@ header {
   height: 25px;
 }
 
+
 #container {
   width:640px; 
   height: 425px; 
@@ -26,7 +27,6 @@ header {
   height:280px;
   margin: auto;
   margin-top: 60px;
-  /* position:relative; */
   display: flex;
 }
 
@@ -40,17 +40,26 @@ header {
 }
 
 .disc{
-    /* position:absolute; */
-    /* z-index:-1;
-    top:-55px;
-    left:14px; */
     width:46px;
     height:46px;
     border-radius:46px;
-    /* transition:all .3s; */
   }
   
 #resetButton {
-  width: 100px;; 
+  width: 100px;
   margin-top: 20px;
+}
+
+.fall {
+  animation-name: fall-animation;
+  animation-duration: 500ms;
+}
+
+@keyframes fall-animation {
+  from {
+      transform: translateY(-280px);
+  }
+  to {
+      transform: translateY(0);
+  }
 }

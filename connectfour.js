@@ -42,7 +42,8 @@ for(let y = 0; y < arr.length; y++){
         // Check the next two cells for the same value
         if(cell === arr[y][x+1] && cell === arr[y][x+2] && cell === arr[y][x+3] ) {
           console.log("4 in a row horizontal found at " + (x+1) + ":" + (y+1) + "Player " + cell + " wins!");
-          setMessage("4 IN A ROW found horizontally at column " + (x+1) + ", row " + (y+1) + "<br> Player " + cell + " wins!");
+          setMessage("4 IN A ROW found horizontally at column " + (x+1) + ", row " + (y+1) + "<br> Player " + 
+                     cell + " wins!");
           result = true;
         }
       }
@@ -63,7 +64,8 @@ for(let y = 0; y < arr.length; y++){
         // Check the next two cells for the same value
         if(cell === arr[y+1][x] && cell === arr[y+2][x] && cell === arr[y+3][x]) {
           console.log("4 in a row horizontal found at " + (x+1) + ":" + (y+1) + "Player " + cell + " wins!")
-          setMessage("4 IN A ROW found vertically at column " + (x+1) + ", row " + (y+1) + "<br>Player " + cell + " wins!");
+          setMessage("4 IN A ROW found vertically at column " + (x+1) + ", row " + (y+1) + "<br>Player " + 
+                     cell + " wins!");
           result = true;
         }
       }
@@ -84,7 +86,8 @@ for(let y = 0; y < arr.length; y++){
         // Check the next two cells for the same value
         if(cell === arr[y+1][x+1] && cell === arr[y+2][x+2] && cell === arr[y+3][x+3]) {
           console.log("4 in a row down-right found at " + (x+1) + ":" + (y+1) + "Player " + cell + " wins!")
-          setMessage("4 IN A ROW found diagonally down-right at column " + (x+1) + ", row " + (y+1) + "<br>Player " + cell + " wins!");
+          setMessage("4 IN A ROW found diagonally down-right at column " + (x+1) + ", row " + (y+1) + "<br>Player " + 
+                     cell + " wins!");
           result = true;
         }
       }
@@ -106,7 +109,8 @@ for(let y = 0; y < arr.length; y++){
         // Check the next two cells for the same value
         if(cell === arr[y-1][x+1] && cell === arr[y-2][x+2] && cell === arr[y-3][x+3]) {
           console.log("4 in a row down-left found at " + (x+1) + ":" + (y+1) + "Player " + cell + " wins!");
-          setMessage("4 IN A ROW found diagonally down-left at column " + (x+1) + ", row " + (y+1) + "<br>Player " + cell + " wins!");
+          setMessage("4 IN A ROW found diagonally down-left at column " + (x+1) + ", row " + (y+1) + "<br>Player " + 
+                     cell + " wins!");
           result = true;
         }
       }
@@ -175,6 +179,8 @@ handleClick = function(event) {
             divEl.className = "disc";
             // Set the color of disc 
             divEl.style.background = color;
+            // Add animation class of disc falling
+            divEl.classList.add("fall");
             var selCol = document.getElementById(col.id);
             selCol.appendChild(divEl);
 
