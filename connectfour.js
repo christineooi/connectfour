@@ -157,9 +157,10 @@ function resetGame() {
     }
 }
 
-
+// When a column is clicked
 handleClick = function(event) {
 
+    // If game is NOT over, continue
     if (!gameOver) {
         //Clear any messages
         setMessage("");
@@ -169,9 +170,10 @@ handleClick = function(event) {
         console.log("col: " + col.id);  
         // Check column is not full
         if (board[0][col.id] === 0){     
-            // Add disc to column
+            // Create and ddd disc to column
             var divEl = document.createElement("div");
             divEl.className = "disc";
+            // Set the color of disc 
             divEl.style.background = color;
             var selCol = document.getElementById(col.id);
             selCol.appendChild(divEl);
@@ -184,8 +186,9 @@ handleClick = function(event) {
                     break;
                 }
             } 
-console.log("board: " + JSON.stringify(board));
+// console.log("board: " + JSON.stringify(board));
 
+            // change the player and color
             if(currentPlayer === 1 ) {
                 nextPlayer = 2;
                 color = "black";
@@ -194,19 +197,19 @@ console.log("board: " + JSON.stringify(board));
                 color = "red";
             }     
         
+            // Call checkWinner to see if there is 4-in-a-row. If so, get gameOver flag to true.
             if(checkWinner(board)) {
                 gameOver = true;
+            // Otherwise call checkDraw to check if all slots are taken. If so, get gameOver flag to true.   
             } else if(checkDraw(board)) {
             setMessage("Draw! Game Over");
-                gameOver = true;
-            // resetGame();
+                gameOver = true;    
             } else { 
                 // Swap players
                 currentPlayer = nextPlayer;
             }
 
-        
-
+        // Set message that column is full
         } else {
             setMessage("No slots available in this column");
         }
